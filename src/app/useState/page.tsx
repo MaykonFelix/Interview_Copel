@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const [number, setNumber] = useState<number>(0)
@@ -12,9 +13,7 @@ export default function Home() {
     <>
       <h1>Teste</h1>
       {number}
-      <button className='border' type="button" onClick={FiltrarOnClick}>
-        +1
-      </button>
+      <Button variant="outline"  onClick={FiltrarOnClick}>+1</Button>
     </>
   )
 }
