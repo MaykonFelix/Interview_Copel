@@ -1,11 +1,13 @@
 'use client'
-import { LinkButton } from '@/components/LinkButton'
-import { useBear } from '@/hooks/useBears'
+import { useTeste } from '@/hooks/useTeste'
+import { Title } from '@/components/Title'
+import { Button } from '@/components/ui/button'
 
 export default function ZustantPage() {
   return (
-    <div className="m-10 h-screen">
-      <LinkButton url={'/'}>Pagina Inicial</LinkButton>
+    <div className="flex gap-4 flex-col">
+      <Title>Zustand Simple</Title>
+
       <BearCounter />
       <Controls />
     </div>
@@ -13,11 +15,17 @@ export default function ZustantPage() {
 }
 
 const BearCounter = () => {
-  const bears = useBear(state => state.bears)
-  return <h1>{bears} bears around here...</h1>
+  const teste = useTeste(state => state.teste)
+  return <h1>{teste} teste around here...</h1>
 }
 
 const Controls = () => {
-  const increasePopulation = useBear(state => state.increasePopulation)
-  return <button onClick={increasePopulation}>one up</button>
+  const increasePopulation = useTeste(state => state.increasePopulation)
+  return (
+    <>
+      <Button onClick={increasePopulation}>Mais Um</Button>
+      <Button onClick={increasePopulation}>Mais Um</Button>
+      <Button onClick={increasePopulation}>Mais Um</Button>
+    </>
+  )
 }
